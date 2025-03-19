@@ -2,97 +2,93 @@ import { useRef } from "react";
 import axios from "axios";
 
 function Registro() {
-
-    const formRef = useRef() 
+    const formRef = useRef();
 
     function darAltaUsuario(event) {
-        event.preventDefault(); 
-        console.log("Voy a registrar Base de Datos"); 
+        event.preventDefault();
+        console.log("Voy a registrar Base de Datos");
         const form = formRef.current;
-        const nombre = form.elements.nombre.value;
+        const username = form.elements.nombre.value;
         const email = form.elements.email.value;
         const password = form.elements.password.value;
-        console.log(nombre,email,password); 
+        console.log(username, email, password);
 
-
-        
-            const datos = {
-                nombre,
-                email,
-                password
-            }
-            axios.post("http://localhost:3000/registro", datos)
-                .then(response => {
-                  alert('Usuario Registrado Correctamente');
-                  console.log(response.data)
-                })
-                .catch(error => {
-                    console.error(error)
-              });
+        const datos = {
+            username,
+            email,
+            password
+        };
+        axios.post("http://localhost:3000/registro", datos)
+            .then(response => {
+                alert('Usuario Registrado Correctamente');
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
-    
-    
-    
-    return (  
-    
-        <div class="site-content">
-            
-            <div class="preloader">
-                <img src="assets/images/favicon/preloader.gif" alt="preloader"/>
+
+    return (
+        <div className="site-content">
+            <div className="preloader">
+                <img src="assets/images/favicon/preloader.gif" alt="preloader" />
             </div>
-            
-            <header id="top-header" class="border-0">
-                <div class="header-wrap">
-                    <div class="header-back">
+
+            <header id="top-header" className="border-0">
+                <div className="header-wrap">
+                    <div className="header-back">
                         <a href="javascript:history.go(-1)">
-                            <img src="assets/svg/black-left-arrow.svg" alt="back-btn-icon"/>
+                            <img src="assets/svg/black-left-arrow.svg" alt="back-btn-icon" />
                         </a>
                     </div>
                 </div>
             </header>
-            
-            <div class="verify-email pb-80" id="sign-up-main">
-                <div class="container">
-                    <div class="let-you-middle-wrap">
-                        <div class="middle-first mt-24 text-center">
+
+            <div className="verify-email pb-80" id="sign-up-main">
+                <div className="container">
+                    <div className="let-you-middle-wrap">
+                        <div className="middle-first mt-24 text-center">
                             <img src="assets/images/splashscreen/small-logo.png" alt="logo" />
-                            <h1 class="md-font-zen fw-400 mt-24">create account</h1>
-                            <p class="sm-font-sans fw-400 mt-12">Sign up now to get access to personalized workouts and achieve your fitness goals.</p>
+                            <h1 className="md-font-zen fw-400 mt-24">Create Account</h1>
+                            <p className="sm-font-sans fw-400 mt-12">
+                                Sign up now to get access to personalized workouts and achieve your fitness goals.
+                            </p>
                         </div>
-                        <form class="mt-32" ref={formRef}>
-                        <div class="form-details-sign-in border mt-8">
+                        <form className="mt-32" ref={formRef}>
+                            <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/password-icon.svg" alt="mail-icon"/>
+                                    <img src="assets/svg/password-icon.svg" alt="password-icon" />
                                 </span>
-                                <input type="text" name="nombre" class="sign-in-custom-input md-font-sans color-black fw-400"/>
-                                <i class="fas fa-eye-slash" id="eye"></i>
+                                <input type="text" name="nombre" className="sign-in-custom-input md-font-sans color-black fw-400" />
                             </div>
-                            <div class="form-details-sign-in border">
+                            <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/mail-icon.svg" alt="mail-icon"/>
+                                    <img src="assets/svg/mail-icon.svg" alt="mail-icon" />
                                 </span>
-                                <input type="email" name="email" value="jessica.smith@mail.com" class="sign-in-custom-input md-font-sans color-black fw-400" autocomplete="off"/>
+                                <input type="email" name="email" className="sign-in-custom-input md-font-sans color-black fw-400" autocomplete="off" />
                             </div>
-                            <div class="form-details-sign-in border mt-8">
+                            <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/password-icon.svg" alt="mail-icon"/>
+                                    <img src="assets/svg/password-icon.svg" alt="password-icon" />
                                 </span>
-                                <input type="password" name="password" value="fitness@123" class="sign-in-custom-input md-font-sans color-black fw-400"/>
-                                <i class="fas fa-eye-slash" id="eye"></i>
+                                <input type="password" name="password" className="sign-in-custom-input md-font-sans color-black fw-400" />
+                                <i className="fas fa-eye-slash" id="eye"></i>
                             </div>
                         </form>
-                        <div class="password-btn mt-16">
-                            <a href="#" onClick={darAltaUsuario}>Enviar</a>
+                        <div className="password-btn mt-16">
+                            <button type="button" className="btn btn-primary" onClick={darAltaUsuario}>Enviar</button>
                         </div>
                         <footer id="let-you-footer">
-                            <div class="block-footer">
-                                <p class="md-font-sans fw-400 text-center">Ya tienes una cuenta? <a href="/ingreso" class="md-font-sans fw-500 color-black text-center">Sign In</a></p>
+                            <div className="block-footer">
+                                <p className="md-font-sans fw-400 text-center">
+                                    ¿Ya tienes una cuenta?{" "}
+                                    <a href="/ingreso" className="md-font-sans fw-500 color-black text-center">Iniciar sesión</a>
+                                </p>
                             </div>
                         </footer>
                     </div>
                 </div>
             </div>
-            
         </div>
     );
 }
