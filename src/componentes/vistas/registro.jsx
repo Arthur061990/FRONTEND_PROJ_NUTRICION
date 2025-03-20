@@ -30,9 +30,9 @@ function Registro() {
 
     return (
         <div className="site-content">
-            <div className="preloader">
+            {/*<div className="preloader">
                 <img src="/images/favicon/preloader.gif" alt="preloader" />
-            </div>
+            </div>*/}
 
             <header id="top-header" className="border-0">
                 <div className="header-wrap">
@@ -65,7 +65,7 @@ function Registro() {
                                 <span>
                                     <img src="/svg/mail-icon.svg" alt="mail-icon" />
                                 </span>
-                                <input type="email" name="email" className="sign-in-custom-input md-font-sans color-black fw-400" autocomplete="off" />
+                                <input type="email" name="email" className="sign-in-custom-input md-font-sans color-black fw-400" autoComplete="off" />
                             </div>
                             <div className="form-details-sign-in border mt-8">
                                 <span>

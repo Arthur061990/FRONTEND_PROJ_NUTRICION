@@ -1,15 +1,32 @@
+import { useRef } from "react";
+import axios from "axios";
+
 function Ingreso() {
-    
+    const formRef = useRef();
     function iniciarSesion(event) {
         event.preventDefault(); 
-        console.log("Botón Presionado");
+        console.log("Voy a mandar datos para inicio sesion");
+        const form = formRef.current;
         
-        //registrar(); 
+        const email = form.elements.email.value;
+        const password = form.elements.password.value;
+        console.log(email, password);
+
+        const datos = {
+            email,
+            password
+        };
+        axios.post("http://localhost:3005/ingreso", datos)
+            .then(response => {
+                //alert('Usuario Registrado Correctamente');
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
     }
-    function darAltaUsuario(event) {
-        event.preventDefault(); 
-        console.log("Voy a registrar Base de Datos"); 
-    }
+    
     
 
     
@@ -18,9 +35,9 @@ function Ingreso() {
 
         <div class="site-content">
 		
-		<div class="preloader">
-			<img src="/images/favicon/preloader.gif" alt="preloader"/>
-		</div>
+		{/*<div className="preloader">
+                <img src="/images/favicon/preloader.gif" alt="preloader" />
+            </div>*/}
 		
 		<header id="top-header" class="border-0">
 			<div class="header-wrap">
@@ -40,7 +57,7 @@ function Ingreso() {
 						<h1 class="md-font-zen fw-400 mt-24">WELCOME BACK</h1>
 						<p class="sm-font-sans fw-400 mt-12">Sign in now to get access to personalized workouts and achieve your fitness goals.</p>
 					</div>
-					<form class="mt-32">
+					<form class="mt-32" ref={formRef}>
 						<div class="form-details-sign-in border">
 							<span>
 								<img src="/svg/mail-icon.svg" alt="mail-icon"/>

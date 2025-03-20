@@ -4,7 +4,9 @@ $(window).on("load" , function () {
 });
 
 $(window).on("load", function() {
-  $('.preloader').delay(1000).fadeOut(1000); 
+  console.log("load",$('.preloader'))
+  //$('.preloader').delay(1000).fadeOut(1000); 
+  $('.preloader').hide(); 
 });
 
 /*------------------------------------- Onboarding Screen -------------------------------------*/
@@ -35,6 +37,7 @@ $(document).on('click', '#eye, #eye1', function() {
 
 /*-------------------------------------OTP Section-------------------------------------*/
 $(document).ready(function() {
+  console.log("ready")
   if ($('#otp').length > 0) {
     $('.digit-group').find('input').each(function() {
       $(this).attr('maxlength', 1);
