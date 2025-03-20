@@ -18,7 +18,7 @@ function Registro() {
             email,
             password
         };
-        axios.post("http://localhost:3000/registro", datos)
+        axios.post("http://localhost:3005/registro", datos)
             .then(response => {
                 alert('Usuario Registrado Correctamente');
                 console.log(response.data);
@@ -31,14 +31,14 @@ function Registro() {
     return (
         <div className="site-content">
             <div className="preloader">
-                <img src="assets/images/favicon/preloader.gif" alt="preloader" />
+                <img src="/images/favicon/preloader.gif" alt="preloader" />
             </div>
 
             <header id="top-header" className="border-0">
                 <div className="header-wrap">
                     <div className="header-back">
                         <a href="javascript:history.go(-1)">
-                            <img src="assets/svg/black-left-arrow.svg" alt="back-btn-icon" />
+                            <img src="/svg/black-left-arrow.svg" alt="back-btn-icon" />
                         </a>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ function Registro() {
                 <div className="container">
                     <div className="let-you-middle-wrap">
                         <div className="middle-first mt-24 text-center">
-                            <img src="assets/images/splashscreen/small-logo.png" alt="logo" />
+                            <img src="/images/splashscreen/small-logo.png" alt="logo" />
                             <h1 className="md-font-zen fw-400 mt-24">Create Account</h1>
                             <p className="sm-font-sans fw-400 mt-12">
                                 Sign up now to get access to personalized workouts and achieve your fitness goals.
@@ -57,19 +57,19 @@ function Registro() {
                         <form className="mt-32" ref={formRef}>
                             <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/password-icon.svg" alt="password-icon" />
+                                    <img src="/svg/password-icon.svg" alt="password-icon" />
                                 </span>
                                 <input type="text" name="nombre" className="sign-in-custom-input md-font-sans color-black fw-400" />
                             </div>
                             <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/mail-icon.svg" alt="mail-icon" />
+                                    <img src="/svg/mail-icon.svg" alt="mail-icon" />
                                 </span>
                                 <input type="email" name="email" className="sign-in-custom-input md-font-sans color-black fw-400" autocomplete="off" />
                             </div>
                             <div className="form-details-sign-in border mt-8">
                                 <span>
-                                    <img src="assets/svg/password-icon.svg" alt="password-icon" />
+                                    <img src="/svg/password-icon.svg" alt="password-icon" />
                                 </span>
                                 <input type="password" name="password" className="sign-in-custom-input md-font-sans color-black fw-400" />
                                 <i className="fas fa-eye-slash" id="eye"></i>

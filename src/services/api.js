@@ -1,3 +1,3 @@
 import axios from "axios";
 
-axios.get("http://localhost:3000")
+axios.get("http://localhost:3005")
