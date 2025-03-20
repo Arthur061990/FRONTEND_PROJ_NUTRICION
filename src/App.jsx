@@ -10,7 +10,7 @@ function App() {
 
 		<BrowserRouter>
 			<Routes>
-				<Route render={() => <Navigate to="/ingreso" />} />
+				<Route path="/" element={<Navigate to="/ingreso" />} />
 				<Route path={"/ingreso"} element={<Ingreso />}/>
 				<Route path={"/registro"} element={<Registro />}/>
 			</Routes>
