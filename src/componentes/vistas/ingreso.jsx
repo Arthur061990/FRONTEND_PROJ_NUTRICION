@@ -1,8 +1,11 @@
 import { useRef } from "react";
+import { useContext, useEffect } from 'react';
 import axios from "axios";
+import AuthContext from '../../../tools/auth.context';
 
 function Ingreso() {
     const formRef = useRef();
+	const authCtx = useContext( AuthContext )
     function iniciarSesion(event) {
         event.preventDefault(); 
         console.log("Voy a mandar datos para inicio sesion");
@@ -20,6 +23,7 @@ function Ingreso() {
             .then(response => {
                 //alert('Usuario Registrado Correctamente');
                 console.log(response.data);
+				authCtx.set( response.data.result )
             })
             .catch(error => {
                 console.error(error);
